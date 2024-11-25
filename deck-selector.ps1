@@ -1,6 +1,5 @@
 #The purpose of this is to grab random Star Wars Unlimited decklists, and copy the JSON output to the users clipboard for easy pasting to TTS
 
-
 #Grabbing a random leader from the leader dropdown on the search page....
 $url= "https://swudb.com/decks/search"
 $response = Invoke-WebRequest $url
@@ -16,9 +15,9 @@ $session.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.
 $session.Cookies.Add((New-Object System.Net.Cookie("Deck_CardsInDeckSortOrder", "Type", "/", "www.swudb.com")))
 $session.Cookies.Add((New-Object System.Net.Cookie("Deck_UseCollection", "False", "/", "www.swudb.com")))
 $session.Cookies.Add((New-Object System.Net.Cookie("Deck_UseSearchSyntax", "False", "/", "www.swudb.com")))
-$session.Cookies.Add((New-Object System.Net.Cookie("Deck_AddCardsToDeckSortOrder", "Cost", "/", "www.swudb.com")))
-$session.Cookies.Add((New-Object System.Net.Cookie(".AspNetCore.Antiforgery.8r203cMLInQ", "CfDJ8AKb2wlZar5Au9vM7cKQkNFTxCD2SAm_anJRo-vRSdsWIPIIPDp4FVPTaY3adF-UOB7fAkEoP59rZjJjPZiUhA87bYQUYZu2tSce7MsXFy3ctMdf44uoZvn9ShMgbREFYABC0trX8vylm7IK1FyKkGo", "/", "www.swudb.com")))
-$session.Cookies.Add((New-Object System.Net.Cookie(".AspNetCore.Identity.Application", "CfDJ8AKb2wlZar5Au9vM7cKQkNFipIJv2o1S_mGmOwKT-5KW6kHH482pim0p_D2t7D7xr4jbjh0E-L3jXi1lGoFHUt6HD91aXlOKD7-u8pE-YhUR-ShRABOGBG9S7t2DyUNjVxvAJiywY8TfH3w1egwoBzuG7BnwOVyWLlJIgVxlUAMNuxadcqeMwDfX9rX14DnfxcezI1yXqg5gGXB_LxehWQsZT1KCial0uk8f8C1HDH8HzxPUORj8aC1LoYy35A37VmtVsny71gGKh7i6kMwxpPZ8au0oY_YkJIYZl7bbkZUgjBtKa0jxN4xkx03XGdLUVE8FSLT8I5Yil_ra-D5sfycGn0Wmfo0wHQn0VVe3oyyMsRfhldQLVtJhsbO9Bs7FNB6xzCIGp4TX3DEPlMK5OCTU0hj4yM8SVjrRRGJxsoEhYp7_r26EkWn_-gk4LVg9D0DvasfruIGG2X2XgvaxpczyDDiT0tzSc4lDDidFfC2mJK1PJLk68HlIS-LnJsyt3DHfDxT6ol62eKOXjjBOryJwLjkGxyJ_PPBHlHtcaXujQCkiS_6mLzj3z-A5NRyAS3AHMM91RbQ1xNgY2D8CLRdzOS-gdJDjSttIFzP52JYznnrAVBNcqOUymAlqgHEu10pQSIHh5O5nKDcgDF3-LzSIFDGJ7GF5ToOM_bOrZKHjM_P-XI7rSt0gIyBSvsxiTWoCV_LI3Z_SArICy9MaJVHzLDNd60_1XWnxY-bFAMpSkJVDyZ-4KyNmQcO8LVmzVSm5NL0Wb9Mb0YSVA0nfwnqZagWZ-TjYyd4VdADFqXlRZh6AvYqRdYW3nU-wML-jbMEVH6HMxyibdaGT1jFhJE8", "/", "www.swudb.com")))
+$session.Cookies.Add((New-Object System.Net.Cookie("Deck_AddCardsToDeckSortOrder", "Name", "/", "www.swudb.com")))
+$session.Cookies.Add((New-Object System.Net.Cookie(".AspNetCore.Identity.Application", "CfDJ8AKb2wlZar5Au9vM7cKQkNGpCyh8_vDk_IcVrfxOsEPZiR_3vwRJdXYGfaCmZsG5aOYua-KglQITUKBS19fSyab0j54pul1Q54NgoHLGGeOzjz0ZVANYl1ZCxGRf16QV2NJ4F-IrdRKearArg6JOlo6Th4OgCkuTBp9w1vTGlBc4EjJxB853AIJypafS5fxLrx3_RgPT34MhxUMpv5by0YghKBnMcW9-kc0i3ircWTVYBpSziRxvM-vbaYDCUaLzSs7vo5Ll8Y7bhgjDn0fB8J16UbtRkRgVZeJ8XXsVJpWu8uYVlZBRBUHEbgL3GfLtCPtv0LXWF4Qm2waW8Vftf71C8UYBCf121cwHUbXviJY9iLHsKa9bdQtTSiX2Drx_zU7m0cyN4d7th7a_uWZn1J8WCjqMTs_U9O3cnkKNxBxWSn0Ovz34c65xVpNHnj2hSfY_ozHKa1KB1hRsMvI47azYPaoyjXPWF4Geh7a00ZYgeQ3kklDwQp0VoUX9qAbe0u5bYPLAG8P364DV6hH9iJ8tdvD4D_5Sy2qN53XSr5yw1JK_MglGkWmupJ2r0Z0Mz8sRLITAmJaFJ_QayJZsqKmbG6x2ZQjHMSTvONpeSKtrMGyyPAou05VQW7aLQzS8wS3ye8PtYQUwWry49o_puQf0sINOzXdR8lybvyOYIml1bd--CKAgyOOz4cqZ9HGkC4t3KnvF2ZVzQJ_bi_YDsxNmE-a1wFXE-ph9tZhNXSqL54xHJiT5AY2W6oZFzDKxPLXfLgUI2DhsHhpBffULT7ITIAHLFWG9j1OX61F_T7lqlmLQjtV1Fa0Q3Hu9AhvyIhsHBVVgi6En07qE5NSvkzk", "/", "www.swudb.com")))
+$session.Cookies.Add((New-Object System.Net.Cookie(".AspNetCore.Antiforgery.8r203cMLInQ", "CfDJ8Ockwgt4SAdPq6deywMH5CuKIIS_dxnrBSScptGFU9GBVTB1n3PWh_WAXtlum1N1cwQpeQrZqcR_mpwnDVQAuwEpcTgQParpTIky91Nb_0bgGlytnZE8fllGr2njRPoY66xuMuX7QTHEDd6iQi3NwXo", "/", "www.swudb.com")))
 $decksPage = Invoke-WebRequest -UseBasicParsing -Uri "https://www.swudb.com/decks/search" `
 -Method "POST" `
 -WebSession $session `
@@ -39,8 +38,7 @@ $decksPage = Invoke-WebRequest -UseBasicParsing -Uri "https://www.swudb.com/deck
   "sec-ch-ua-platform"="`"Windows`""
 } `
 -ContentType "application/x-www-form-urlencoded" `
--Body "SearchLeaderId=$leaderID&SearchBaseId=&SearchAspect=&SearchFormat=&SearchSortOrder=Hot&__RequestVerificationToken=CfDJ8AKb2wlZar5Au9vM7cKQkNErIvjh8YYZqZkVI6BCsaXNfbpdVm1bzAS1kc0g5JLrRHDvRZtiYHCivGo5HSKOf1WxdLj0gwXcAwt0bSUlTPqkYyf3c4u6aenOxFuBSQ0oTgqMReVvS_eKeIXhLrs6WkkpJ68TyFoTZQLt14O6nuIHRXoLJRnrEnGGtHSPAn3A7w&SearchHasDescription=false"
-
+-Body "SearchLeaderId=$leaderID&SearchBaseId=&SearchAspect=&SearchFormat=&SearchSortOrder=Hot&__RequestVerificationToken=CfDJ8Ockwgt4SAdPq6deywMH5Cuy_3bsksu4AxqmmT8i4OXHWAELMf_6hdhHNIjK7LO4Na7oPIMqWg0O2k6Zz94LpoCRek6xGf1OCiIFPigfNgXI5sRtodOuhu9ibU7noutevHPhBsD0lES81wTzgs1ZwH0&SearchHasDescription=false"
 #END GLORIOUS SPELLCASTING
 
 #Find all links that are decklists, and select a random deck link
@@ -54,4 +52,3 @@ $fullDeckUrl = "https://swudb.com$($deckUrl)?handler=JSONfile"
 $finalResponse = Invoke-WebRequest $fullDeckUrl
 $data = $finalResponse.Content
 $data | clip
-Write-Output $data
